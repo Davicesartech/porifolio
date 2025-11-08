@@ -1,0 +1,953 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    /* usar Poppins quando disponível, com fallbacks */
+    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    letter-spacing: 0.01em;
+}
+.quadrado{
+        margin: 8px;
+        height: 10vh;
+        padding: 15px;
+        background-color: var(--bgquadrado);
+        border-radius: 40px;
+       display: flex;
+       align-items: center;
+         justify-content: center;
+    transition: transform 0.35s cubic-bezier(.23,1.01,.32,1), box-shadow 0.35s, background 0.35s, filter 0.35s;
+}
+
+.quadrado:hover {
+    transform: translateY(-10px) scale(1.07);
+    box-shadow: 0 16px 32px rgba(44, 11, 138, 0.18), 0 2px 8px rgba(44, 11, 138, 0.10);
+    background: linear-gradient(120deg, var(--bgquadrado) 80%, #fff 100%);
+    filter: brightness(1.12) saturate(1.15);
+}
+
+.quadrado h2{
+    font-size: 18px;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+main {
+    background-color: var(--bgmain);
+    padding-bottom: 10vh;
+    color: var(--txtnormal);
+}   
+
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    left: 20px;
+
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  .dark-mode {
+    --bgmain: #0e0d0d;
+    --bgcima:#3e5ae6;
+    --txtcima:rgb(241, 241, 241);
+        --bgquadrado:#99abc586;
+    --bgeducacao: #585858;
+    --txtnormal:#FFFFFF;
+    --txtfraco:#e6e0e0;
+    --bgcursando: #A9970D;
+    --bgconcluido: #0C861A;
+    --bgprevisto: #0C3C86;
+    --bgbtn: #91a8cc;
+    --bgfooter:#5D77FA; 
+
+  } 
+:root{
+    --bgmain: #e9e9e9a6;
+    --bgcima:#5D77FA;
+    --txtcima:rgb(255, 255, 255);
+    --bgquadrado:#7094ca4b;
+    --bgeducacao: #585858;
+    --txtnormal:#000000;
+    --txtfraco:#938F8F;
+    --bgcursando: #A9970D;
+    --bgconcluido: #0C861A;
+    --bgprevisto: #0C3C86;
+    --bgbtn: #91a8cc;
+    --bgfooter:#5D77FA;
+}
+
+#cabeçalho {
+    background-color: var(--bgcima);
+    color: var(--txtcima);
+    height: 80px;
+    display: flex;
+    
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.nome {
+    font-weight: 400;
+    font-size: clamp(24px, 4vw, 36px);
+    margin-right: auto;
+}
+
+.lista {
+    display: flex;
+    gap: 5vh;
+    font-size: 24px;
+    text-decoration: none;
+    list-style: none;
+    margin-right: 50px;
+}
+.lista li a {
+    text-decoration: none;
+    color: var(--txtcima);
+}
+
+#sobremim {
+    padding-top: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.textosobremim p {
+    font-size: 50px;
+}
+
+.textosobremim h2 {
+    color: var(--bgcima);
+    font-size: 30px;
+}
+
+.textosobremim h4 {
+    font-size: 26px;
+    font-weight: 400;
+}
+
+.imagem {
+    border-radius: 50%;
+    height: 35vh;
+}
+
+#sobremim1 {
+    padding-top: 10vh;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.texto h2 {
+    padding-bottom: 15px;
+    font-size: clamp(24px, 3vw, 36px);
+}
+
+.texto p {
+    font-size: clamp(16px, 2vw, 26px);
+    width: 100%;
+    max-width: 800px;
+    text-align: justify;
+    margin: 0 auto;
+}
+.listras{padding-top: 10vh;
+    display: inline-block;
+    width: 45%;
+    
+}
+.listras>span{
+    display: inline-block;
+    width: 100%;
+    border: solid rgb(44, 11, 138) 1px;
+}
+.quadrado1, .quadrado2 {
+    box-shadow: 2px 2px 5px black;
+    margin-top: 40px;
+    background-color: var(--bgeducacao);
+    border-radius: 50px;
+    min-height: 20vh;
+    height: 20vh;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    transition: transform 0.35s cubic-bezier(.23,1.01,.32,1), box-shadow 0.35s, background 0.35s, filter 0.35s;
+}
+
+.quadrado1:hover, .quadrado2:hover {
+    transform: translateY(-10px) scale(1.07);
+    box-shadow: 0 16px 32px rgba(44, 11, 138, 0.18), 0 2px 8px rgba(44, 11, 138, 0.10);
+    background: linear-gradient(120deg, var(--bgeducacao) 80%, #fff 100%);
+    filter: brightness(1.12) saturate(1.15);
+}
+
+    .quadrado2 {
+        background-color: var(--bgquadrado);
+    }
+.habilidades{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows:  1fr 1fr;
+
+}
+.textos h2{
+    padding-bottom: 15px;
+    font-size: 36px;
+    justify-content: center;
+    align-items: center;
+}
+.textos{
+    padding-bottom: 15px;
+    margin:20px;
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.listras1{
+    display: block;
+    text-align: center;
+    width: 100%;
+    /* .quadrado já está padronizada no estilo global */
+}
+.listras1>span{
+    height: 100%;
+
+    
+    
+    background-color:  rgb(44, 11, 138);
+}
+.azul{
+    height: 100%;
+    width: 3px;
+    display:inline-block;
+}
+.quadrado1{
+    box-shadow: 2px 2px 5px black;
+    margin-top: 40px;
+    background-color: var(--bgeducacao);
+    border-radius: 50px;
+    min-height: 20vh;
+    height: auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.habilidades1{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    column-gap: 50px;
+    width: 100%;
+}
+.container1{
+    display: flex;
+    width: 70%;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+}
+
+.container1 h2{
+    color: var(--txtcima);
+    padding-right: 15px;
+    font-size: 18px;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.3;
+}
+
+.container1 p{
+    font-size: 14px;
+    color: var(--txtfraco);
+    line-height: 1.4;
+}
+.estado{
+    color: var(--txtcima);
+    background-color: var(--bgcursando);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 5vh;
+    border-radius: 15vh;
+    width: 30%;
+    
+}
+.quadrado2{
+    box-shadow: 2px 2px 5px black;
+    margin-top: 40px;
+    background-color: var(--bgeducacao);
+    border-radius: 50px;
+    height: 20vh;
+    padding-left: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.habilidades2{
+    width: 100vh;
+   
+}
+.container2{
+    height: 80%;
+    display: flex;
+    width: 60%;
+    flex-direction: column;
+
+}
+.container2 h2{
+    color: var(--txtcima);
+    padding-right: 15px;
+    font-size: 20px;
+    font-weight: 400;
+    font-style: italic;
+}
+.container2 p{
+    font-size: 12px;
+    color: var(--txtcima);
+}
+.estado2{
+    color: var(--txtcima);
+    background-color: var(--bgconcluido);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5vh;
+    border-radius: 15vh;
+    width: 30%;
+}
+.estado3{
+    color: var(--txtcima);
+    background-color: var(--bgprevisto);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 5vh;
+    border-radius: 15vh;
+    width: 30%;
+    
+}
+.containerprojetos{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 100px;
+    justify-items: center;
+    align-self: center;
+}
+.projeto1{
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.562);
+    margin-top: 40px;
+    background-color: var(--bgeducacao);
+    border-radius: 50px;
+    min-height: 30vh;
+    height: auto;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    color: var(--txtnormal);
+    padding: 20px 25px;
+}
+.dentroprojeto{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+}
+.projetos h2{
+    font-weight: bold;
+    margin-top: 20px;
+    color: var(--txtcima);
+    padding-right: 15px;
+    font-size: 20px;
+    font-style: italic;
+}
+.projetos p{
+    margin-top: 20px;
+    color: var(--txtcima);
+}
+.containerclasses{
+    display: flex;
+    gap: 10px;
+}
+.classes{
+    margin-top: 20px;
+    background-color: var(--bgcima);
+    border-radius: 50px;
+    height: 3vh;
+    width: 15%;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.classes p{
+    font-size: 12px;
+}
+.btn{
+    background-color: var(--bgbtn);
+    border-radius: 50px;
+    height: 40px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.btn a{
+    text-decoration: none;
+    color: var(--txtcima);
+    font-size: 14px;
+    padding: 8px 16px;
+}
+
+.containerbtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: auto;
+}
+.containercontato{
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    row-gap: 40px;
+    align-items: center;
+    justify-items: center;
+}
+.contato{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    column-gap: 40px;
+}
+.contato a{
+    display: flex;
+    
+}
+.textinho{
+    
+    display: flex;
+    flex-direction: column  ;
+}
+.imagemcontato{
+object-fit:contain ;
+height: 10vh;
+width: 5vh;
+}
+.containerfooter{
+    
+    background-color: var(--bgfooter);
+    color: var(--txtcima);
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#sobrehabilidades {
+    padding-top: 10vh;
+    padding-left: 32vh;
+    width: 80%;
+    
+   
+}
+#sobreprojetos {
+    padding-top: 10vh;
+    padding-left: 32vh;
+    width: 80%;
+    
+   
+}
+#sobrecontato {
+    padding-top: 10vh;
+    padding-left: 32vh;
+    width: 80%;
+    
+   
+
+}
+.textinho a{
+    text-decoration: none;
+    color: var(--bgfooter  );
+    font-size: 16px;
+}
+#forms{
+    margin-top: 40px;
+    display: flex;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 40px;
+    align-items: center;
+    justify-content: center;
+}
+.containerforms {
+    
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+}
+
+.containerforms h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Agrupamento de label e input */
+.form-grupo {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block; /* Faz a label ocupar a própria linha */
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Estilo para todos os campos de texto e área de texto */
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Garante que o padding não aumente o tamanho total */
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: #007bff; /* Cor ao focar no campo */
+    outline: none;
+}
+
+/* Estilo para o botão de Enviar */
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para a observação */
+.nota {
+    margin-top: 20px;
+    font-size: 0.85em;
+    color: #888;
+    text-align: center;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+/* Menu Hambúrguer */
+.menu-hamburguer {
+    display: none;
+    cursor: pointer;
+    padding: 15px;
+}
+
+.menu-hamburguer div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--txtcima);
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+/* Animação do Menu Hambúrguer */
+.menu-hamburguer.ativo div:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.menu-hamburguer.ativo div:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-hamburguer.ativo div:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Botão Voltar ao Topo */
+.voltar-topo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--bgcima);
+    color: var(--txtcima);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    transform: translateY(100px);
+}
+
+.voltar-topo.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Media Queries para Responsividade */
+@media screen and (max-width: 1400px) {
+    .container {
+        max-width: 1200px;
+    }
+    
+    #sobremim1,
+    #sobrehabilidades,
+    #sobreprojetos,
+    #sobrecontato {
+        width: 90%;
+        max-width: 1200px;
+        padding-left: 15vw;
+        padding-right: 15vw;
+        margin: 0 auto;
+    }
+
+    .texto p {
+        width: 100%;
+    }
+
+    .habilidades1 {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        width: 100%;
+    }
+
+    .containerprojetos {
+        gap: 40px;
+        width: 100%;
+    }
+
+    .projeto1 {
+        width: 100%;
+        min-height: 35vh;
+    }
+
+    .containercontato {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #sobremim1,
+    #sobrehabilidades,
+    #sobreprojetos,
+    #sobrecontato {
+        padding-left: 5vw;
+        padding-right: 5vw;
+        width: 90%;
+    }
+
+    .habilidades1 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .containerprojetos {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .projeto1 {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* Header e Navegação */
+    .container {
+        justify-content: space-between;
+        padding: 0 15px;
+    }
+
+    .switch {
+        margin-left: 10px;
+        margin-right: 0;
+        left: 0;
+    }
+
+    .menu-hamburguer {
+        display: block;
+        z-index: 1000;
+    }
+
+    .lista {
+        position: fixed;
+        top: 80px;
+        right: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 0;
+        transition: 0.4s;
+        z-index: 999;
+    }
+
+    .lista.ativo {
+        right: 0;
+    }
+
+    .lista li {
+        margin: 15px 0;
+    }
+
+    .switch {
+        margin-left: 20px;
+    }
+
+    /* Seção Sobre Mim */
+    #sobremim {
+        flex-direction: column;
+        text-align: center;
+        padding: 5vh 20px;
+        gap: 30px;
+    }
+
+    .textosobremim p {
+        font-size: 32px;
+    }
+
+    .textosobremim h2 {
+        font-size: 24px;
+    }
+
+    .textosobremim h4 {
+        font-size: 20px;
+    }
+
+    .imagem {
+        height: 25vh;
+        width: auto;
+    }
+
+    /* Grid de Habilidades */
+    .habilidades {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .quadrado {
+    margin: 8px;
+    height: auto;
+    padding: 15px;
+    background-color: var(--bgquadrado);
+    border-radius: 40px;
+    }
+
+    /* Removido pois agora .quadrado2 herda de .quadrado1 */
+    .quadrado2 {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+
+    .container1,
+    .container2 {
+        width: 70%;
+    }
+
+    .estado,
+    .estado2,
+    .estado3 {
+        width: auto;
+        padding: 0 15px;
+        min-width: 100px;
+    }
+
+    /* Contatos */
+    .containercontato {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .contato {
+        width: 90%;
+    }
+
+    .imagemcontato {
+        height: 8vh;
+        width: 4vh;
+    }
+
+    /* Formulário */
+    .containerforms {
+        width: 90%;
+        margin: 0 auto;
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .nome {
+        font-size: 20px;
+        width: auto;
+    }
+
+    .texto h2 {
+        font-size: 24px;
+    }
+
+    .texto p {
+        font-size: 16px;
+        width: 100%;
+    }
+
+    .habilidades {
+        grid-template-columns: 1fr;
+    }
+
+    .containerclasses {
+        flex-wrap: wrap;
+    }
+
+    .classes {
+        width: auto;
+        padding: 0 10px;
+        min-width: 60px;
+    }
+
+    .btn {
+        width: 80%;
+    }
+
+    .containerfooter {
+        padding: 15px;
+        text-align: center;
+    }
+
+    .containerfooter h2 {
+        font-size: 20px;
+    }
+
+    .containerfooter p {
+        font-size: 14px;
+    }
+}
+
+/* Ajustes para telas muito pequenas */
+@media screen and (max-width: 360px) {
+    .textosobremim p {
+        font-size: 24px;
+    }
+
+    .container1 h2,
+    .container2 h2 {
+        font-size: 16px;
+    }
+
+    .container1 p,
+    .container2 p {
+        font-size: 14px;
+    }
+
+    .projetos h2 {
+        font-size: 18px;
+    }
+
+    .projetos p {
+        font-size: 14px;
+    }
+}
